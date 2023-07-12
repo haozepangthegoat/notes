@@ -1,0 +1,118 @@
+\documentclass[12pt,a4paper]{article}
+\newcommand{\hN}{\_NAME}
+%
+\title{Web design notes}
+\author{haozepangthegoat}
+%
+\usepackage{listings}
+\lstset{
+  %language         = C++,
+  basicstyle       = \ttfamily \color{VSwhite},
+  keywordstyle     = \color{VSblue}\textbf,
+  %keywordstyle     = \color{VSblue1}\textbf
+  commentstyle     = \color{gray},
+  stringstyle      = \color{VSwhite},
+  stringstyle      = \color{VSOrange},
+  columns          = fullflexible,
+  numbers          = left,
+  numberstyle      = \scriptsize\sffamily\color{gray},
+  %caption          = A hello world program in \Cpp,
+  xleftmargin      = 0.16\textwidth,
+  xrightmargin     = 0.16\textwidth,
+  showstringspaces = false,
+  float,
+}
+\usepackage{tcolorbox}
+%
+\usepackage{xcolor}
+\definecolor{VSblue}{RGB}{102, 152, 206}
+\definecolor{VSblue1}{RGB}{157, 201, 230}
+\definecolor{VSOrange}{RGB}{197, 148 124}
+\definecolor{VSblack}{RGB}{31,31,31}
+\definecolor{VSwhite}{RGB}{200,200 200}
+%
+\begin{document}
+\maketitle
+\section{Git}
+\ttfamily
+commands:
+\begin{itemize}
+		\item mkdir testfolder
+		\item git clone REPOSITORY\_URL
+		\item touch NEW\_FILE\_NAME
+		\item git add FILE\_NAME
+		\item git add . 
+		\item git commit -m "messages"
+		\item git push
+		\item git commit -am "messages"
+		\item git pull
+		\item git branch
+		\item git checkout -b NEW\_BRANCH
+		\item git checkout BRANCH\_NAME
+		\item git log
+		\item git revert --hard COMMIT\_HASH
+		\item git push -f origin BRANCH\_NAME
+		\item git push --set-upstream origin colour\_box
+
+\end{itemize}
+\normalfont
+\section{HTML}
+%box1
+\begin{tcolorbox}[title= \centering Example code, colback= VSblack, width =150mm]
+\centering
+	\begin{lstlisting}[language = HTML]
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>New Year Check</title>
+        <link href="{% static 'ny/style.css' %}" rel="stylesheet">
+    </head>
+    <body>
+        {% if newyear %}
+            <h1>Yes</h1>
+        {% else %}
+            <h1>No</h1>
+        {% endif %}
+    </body>
+</html>	\end{lstlisting}
+\end{tcolorbox}
+%
+\section{Django}
+\subsection{basics}
+	\subsubsection{html with django}
+	Use \texttt{\{\{VAR\_html\}\}} for html variables.\\
+	Use \texttt{\{\% PYTHON\_COMMANDS\%\}} for python commands. Remember to end a loop with \texttt{\{\% end<LOOP\_NAME>\%\}}.
+	\subsubsection{important packages}
+	\ttfamily
+	django.urls:
+	\begin{itemize}
+		\item include
+		\item path('path\_name', content the path renders, name="name\_of\_the\_path")
+		
+		\textnormal{
+		\texttt{'path\_name'}:
+		The default option is \texttt{""}. It could also be a variable,for example, \texttt{"<str:VAR\_NAME>"}.
+		}
+	\end{itemize}
+	django.shortcuts:
+	\begin{itemize}
+		\item render(request, "FILE\_NAME.html", \{"VAR\_html":VAR\_python\})
+	\end{itemize}
+	\subsection{basic setup}
+	\begin{itemize}
+	\ttfamily
+		\item pip3 install Django
+		\item dango-admin startproject PROJECT\hN
+		\item python manage.py startapp APP\hN
+	\end{itemize}
+	\normalfont
+	When creating a new app, add the app's name to the list of \texttt{INSTALLED\_APPS} in \textit{settings.py}. Also create a \textit{urls.py} file in the \textit{APP\hN} folder.
+	
+	To direct the url to the desired app, \texttt{include("APP\hN.urls")} in the \texttt{path 'APP\hN/'}. Put the \texttt{path} in the list of \texttt{urlpatterns}.		
+	\subsection{routes}
+		\begin{itemize}
+		\item kk
+	\end{itemize}
+
+\end{document}
