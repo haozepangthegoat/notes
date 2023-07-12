@@ -1,4 +1,4 @@
-\documentclass[12pt,a4paper]{article}
+\documentclass[12,a4paper]{article}
 \newcommand{\hN}{\_NAME}
 %
 \title{Web design notes}
@@ -48,14 +48,18 @@ commands:
 		\item git pull
 		\item git branch
 		\item git checkout -b NEW\_BRANCH
-		\item git checkout BRANCH\_NAME
+		\item git checkout BRANCH\_NAME\\
+	
+		\color{blue}
+		\textbf{Advanced}
 		\item git log
 		\item git revert --hard COMMIT\_HASH
-		\item git push -f origin BRANCH\_NAME
 		\item git push --set-upstream origin colour\_box
-
 \end{itemize}
 \normalfont
+To exclude files from git, create a file \texttt{.gitignore} and add the file intended to exclude to \texttt{.gitignore}. Use \texttt{*} as wildword. 
+
+%S
 \section{HTML}
 %box1
 \begin{tcolorbox}[title= \centering Example code, colback= VSblack, width =150mm]
