@@ -1,9 +1,7 @@
-\documentclass[12,a4paper]{article}
+\documentclass[a4paper]{article}
+\usepackage[head=0.2cm, bottom=3cm, voffset=-20pt]{geometry}
 \newcommand{\hN}{\_NAME}
-%
-\title{Web design notes}
-\author{haozepangthegoat}
-%
+% code listings
 \usepackage{listings}
 \lstset{
   %language         = C++,
@@ -23,16 +21,38 @@
   float,
 }
 \usepackage{tcolorbox}
-%
+% colours
 \usepackage{xcolor}
+% VS
 \definecolor{VSblue}{RGB}{102, 152, 206}
 \definecolor{VSblue1}{RGB}{157, 201, 230}
 \definecolor{VSOrange}{RGB}{197, 148 124}
 \definecolor{VSblack}{RGB}{31,31,31}
 \definecolor{VSwhite}{RGB}{200,200 200}
+% C
+\definecolor{CGreen}{RGB}{0, 110, 95}
+\definecolor{CBlue}{RGB}{0, 65, 165}
+\definecolor{CRed}{RGB}{183, 141, 18}
+\definecolor{CPurple}{RGB}{65, 28, 53}
+\definecolor{CWhite}{RGB}{241,240, 237}
+\definecolor{CWhite}{RGB}{249, 241, 219}
+% bear
+\definecolor{Bbg}{RGB}{252, 246, 229}
+\definecolor{Btitle}{RGB}{64, 79, 83}
+\definecolor{Btext}{RGB}{52, 62, 68}
 %
+\usepackage{titlesec}
+\titleformat*{\section}{\bfseries \Large \color{Btitle} }
+\titlelabel{\thetitle.\quad}
+%
+\pagecolor{Bbg}
+% document
 \begin{document}
-\maketitle
+\color{Btext}
+\begin{center}
+	\LARGE\bfseries
+	Web design notes
+\end{center}
 \section{Git}
 \ttfamily
 commands:
@@ -50,7 +70,7 @@ commands:
 		\item git checkout -b NEW\_BRANCH
 		\item git checkout BRANCH\_NAME\\
 	
-		\color{blue}
+		\color{CBlue}
 		\textbf{Advanced}
 		\item git log
 		\item git revert --hard COMMIT\_HASH
@@ -65,21 +85,68 @@ To exclude files from git, create a file \texttt{.gitignore} and add the file in
 \begin{tcolorbox}[title= \centering Example code, colback= VSblack, width =150mm]
 \centering
 	\begin{lstlisting}[language = HTML]
-{%load static%}
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>New Year Check</title>
-        <link href="{% static 'ny/style.css' %}" rel="stylesheet">
+        <title>HTML Elements</title>
     </head>
     <body>
-        {% if newyear %}
-            <h1>Yes</h1>
-        {% else %}
-            <h1>No</h1>
-        {% endif %}
+        <!-- We can create headings using h1 through h6 as tags. -->
+        <h1>A Large Heading</h1>
+        <h2>A Smaller Heading</h2>
+        <h6>The Smallest Heading</h6>
+
+        <!-- The strong and i tags give us bold and italics respectively. -->
+        A <strong>bold</strong> word and an <i>italicized</i> word!
+
+        <!-- We can link to another page (such as cs50's page) using a. -->
+        View the <a href="https://cs50.harvard.edu/">CS50 Website</a>!
+
+        <!-- We used ul for an unordered list and ol for an ordered one. both ordered and unordered lists contain li, or list items. -->
+        An unordered list:
+        <ul>
+            <li>foo</li>
+            <li>bar</li>
+            <li>baz</li>
+        </ul>
+        An ordered list:
+        <ol>
+            <li>foo</li>
+            <li>bar</li>
+            <li>baz</li>
+        </ol>
+
+        <!-- Images require a src attribute, which can be either the path to a file on your computer or the link to an image online. It also includes an alt attribute, which gives a description in case the image can't be loaded. -->
+        An image:
+        <img src="../../images/duck.jpeg" alt="Rubber Duck Picture">
+        <!-- We can also see above that for some elements that don't contain other ones, closing tags are not necessary. -->
+
+        <!-- Here, we use a br tag to add white space to the page. -->
+        <br/> <br/>
+
+        <!-- A few different tags are necessary to create a table. -->
+        <table>
+            <thead>
+                <th>Ocean</th>
+                <th>Average Depth</th>
+                <th>Maximum Depth</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Pacific</td>
+                    <td>4280 m</td>
+                    <td>10911 m</td>
+                </tr>
+                <tr>
+                    <td>Atlantic</td>
+                    <td>3646 m</td>
+                    <td>8486 m</td>
+                </tr>
+            </tbody>
+        </table>
     </body>
-</html>	\end{lstlisting}
+<html>	
+\end{lstlisting}
 \end{tcolorbox}
 %
 \section{Django}
